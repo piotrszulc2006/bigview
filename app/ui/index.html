@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>bigview</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <button id="open">Open file...</button>
+      <input id="query" type="search" placeholder="Find (Enter: next match)" autocomplete="off" spellcheck="false" />
+      <input id="goto" type="number" min="1" placeholder="Go to line" />
+      <span id="message" role="status"></span>
+    </header>
+
+    <main id="viewport" tabindex="0">
+      <!-- #rows must precede #spacer: it sticks to the top from offset 0. -->
+      <div id="rows"></div>
+      <div id="spacer"></div>
+      <div id="empty">Open a text, log or CSV file of any size.</div>
+    </main>
+
+    <footer>
+      <span id="path"></span>
+      <span id="stats"></span>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

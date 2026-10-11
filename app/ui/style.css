@@ -1,0 +1,157 @@
+:root {
+  --bg: #0f1419;
+  --panel: #161d26;
+  --border: #263241;
+  --text: #d8dee6;
+  --muted: #6b7a8c;
+  --accent: #f46623;
+  --hit: #5a3b12;
+  --row: 20px;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.4 system-ui, sans-serif;
+}
+
+header,
+footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+footer {
+  border-bottom: 0;
+  border-top: 1px solid var(--border);
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#path {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#stats {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
+button,
+input {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover,
+input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+#query {
+  flex: 1;
+  min-width: 120px;
+  max-width: 420px;
+}
+
+#goto {
+  width: 120px;
+}
+
+#message {
+  color: var(--muted);
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+#viewport {
+  position: relative;
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: auto;
+  outline: none;
+}
+
+/* Gives the scrollbar its range; rows are drawn on top by #rows. */
+#spacer {
+  width: 1px;
+}
+
+#rows {
+  position: sticky;
+  top: 0;
+  height: 0;
+  font: 13px/var(--row) ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+}
+
+.row {
+  display: flex;
+  height: var(--row);
+  white-space: pre;
+}
+
+.row.hit {
+  background: var(--hit);
+}
+
+.num {
+  flex: none;
+  padding: 0 12px 0 8px;
+  text-align: right;
+  color: var(--muted);
+  user-select: none;
+  border-right: 1px solid var(--border);
+  margin-right: 10px;
+}
+
+.more {
+  color: var(--accent);
+}
+
+mark {
+  background: var(--accent);
+  color: #000;
+}
+
+/* The grid display below would otherwise override the hidden attribute. */
+#empty[hidden] {
+  display: none;
+}
+
+#empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}

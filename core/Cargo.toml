@@ -1,0 +1,13 @@
+[package]
+name = "bigview-core"
+version = "0.1.0"
+edition = "2021"
+description = "Line-indexed, memory-mapped access to very large text files"
+license = "MIT"
+
+[dependencies]
+memchr = "2"
+memmap2 = "0.9"
+
+[dev-dependencies]
+tempfile = "3"
